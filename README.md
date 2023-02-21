@@ -44,3 +44,19 @@ Sub FindString()
             
         End If
     End With
+    
+    
+    Sub define_cell_adress()
+
+Dim ThisPos As Range
+With Range("A1:J100")
+    Set ThisPos = .Find(What:="dash", LookAt:=xlWhole, MatchCase:=False, SearchFormat:=False)
+    If Not ThisPos Is Nothing Then
+        Cell_Add = Split(ThisPos.Address, "$")
+        ThisRow = Cell_Add(1)
+        ThisCol = Cell_Add(2)
+        MsgBox (ThisRow)
+        MsgBox (ThisCol)
+    End If
+End With
+End Sub
